@@ -1,4 +1,5 @@
 const path = require("path");
+
 const getDatabaseUrl = require("./src/config/getDatabaseUrl.cjs");
 
 const migrationPath = "src/db/migrations";
