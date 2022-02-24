@@ -35,8 +35,10 @@ class Factory {
    * @return {Array} instances - persisted objects
    * @memberof Factory
    */
-  async createMany(overrides, options) {
-    const instances = overrides.map(async (override) => this.build(override, options));
+  async createMany(number, overrides, options) {
+    const instances = [...Array(number)].map(async (element, index) => {
+      return this.build(Array.isArray(overrides) ? overrides[index] : overrides, options);
+    });
     const resolvedInstances = await Promise.all(instances);
 
     return this.TargetModel.query().insertGraphAndFetch(resolvedInstances, insertGraphOptions);

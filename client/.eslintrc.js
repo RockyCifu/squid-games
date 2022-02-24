@@ -17,7 +17,7 @@ module.exports = {
         extensions: ["jsx", "tsx"],
       },
     ],
-    "prettier/prettier": "error",
+    "prettier/prettier": ["error", { endOfLine: "auto" }],
     "no-underscore-dangle": "off",
     "import/no-cycle": "off",
     "react/prop-types": "off",
