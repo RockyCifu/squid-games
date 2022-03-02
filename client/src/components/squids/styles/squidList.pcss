@@ -5,3 +5,23 @@
 .squid-list {
   @apply max-w-screen-xl mx-auto grid grid-cols-responsive gap-6 mb-8 px-4;
 }
+
+.pagination-list {
+  @apply max-w-screen-xl mx-auto flex align-middle justify-center mb-8;
+
+  & .pagination-list__link {
+    @apply mr-4 no-underline font-semibold text-lg text-primary;
+  }
+
+  & .pagination-list__link:hover {
+    @apply text-secondary;
+  }
+
+  & .pagination-list__link:last-child {
+    @apply m-0;
+  }
+
+  & .active {
+    @apply text-secondary;
+  }
+}
