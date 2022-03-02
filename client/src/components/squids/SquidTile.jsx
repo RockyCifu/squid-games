@@ -2,7 +2,7 @@ import React from "react";
 import "./styles/squidTile.pcss";
 
 export const SquidTile = ({ squid }) => {
-  const imagePath = `/images/${squid.species.toLowerCase().split(" ").join("-")}-squid.png`;
+  const imagePath = `/images/${squid.species.toLowerCase().replace(" ", "-")}-squid.png`;
 
   return (
     <li className="squid-card">

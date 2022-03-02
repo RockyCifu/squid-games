@@ -26,9 +26,7 @@ const App = () => {
       <Router>
         <Navbar />
         <Switch>
-          <Route exact path="/">
-            <SquidList />
-          </Route>
+          <Route exact path="/" component={SquidList} />
         </Switch>
       </Router>
       <ReactQueryDevtools initialIsOpen={false} />
