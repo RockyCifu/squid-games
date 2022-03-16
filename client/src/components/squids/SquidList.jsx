@@ -1,12 +1,18 @@
 import React from "react";
 
-import "./styles/squidList.pcss";
+import { Redirect } from "react-router-dom";
 
 import { usePaginatedSquids } from "./hooks/usePaginatedSquids";
 import { SquidTile } from "./SquidTile";
 
+import "./styles/squidList.pcss";
+
 export const SquidList = () => {
-  const { squids, paginationLinkList, isLoading } = usePaginatedSquids(10);
+  const { squids, paginationLinkList, isLoading, isError, error } = usePaginatedSquids(10);
+
+  if (isError && error?.request?.status === 404) {
+    return <Redirect to="/404" />;
+  }
 
   const squidTiles = squids?.map((squid) => <SquidTile key={squid.id} squid={squid} />);
 

@@ -12,16 +12,11 @@ export const usePaginatedSquids = (limit) => {
   const { data, isError, error, isLoading } = useSquids(currentPage, limit);
   const numPages = data?.pages || 1;
 
-  if (isError) {
-    if (error?.request?.status === 404) {
-      // render a PageNotFound component
-      alert("page not found");
-    }
-  }
-
   return {
     squids: data?.squids || [],
     paginationLinkList: <SquidPaginationList numPages={numPages} currentPage={currentPage} />,
     isLoading,
+    isError,
+    error,
   };
 };
