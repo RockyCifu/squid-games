@@ -6,16 +6,16 @@ import "./styles/navbar.pcss";
 export const Navbar = () => (
   <div className="navbar">
     <div className="navbar__container">
-      <p className="navbar__title">SQUID GAMES</p>
+      <p className="navbar__title">Squid Games</p>
       <ul className="navbar__link-list">
         <li className="navbar__link">
-          <Link to="/">HOME</Link>
+          <Link to="/">Home</Link>
         </li>
         <li className="navbar__link">
-          <Link to="/">ABOUT</Link>
+          <Link to="/">About</Link>
         </li>
         <li className="navbar__link">
-          <Link to="/">DONATE</Link>
+          <Link to="/">Donate</Link>
         </li>
       </ul>
     </div>
