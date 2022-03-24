@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 export const SquidPaginationList = (props) => {
   const { numPages, currentPage } = props;
@@ -12,7 +12,9 @@ export const SquidPaginationList = (props) => {
     const current = index + 1;
     return (
       <li key={current} className="pagination-list__link">
-        <Link to={`/squids/pages/${current}`}>{current}</Link>
+        <NavLink to={`/squids/pages/${current}`} activeClassName="active">
+          {current}
+        </NavLink>
       </li>
     );
   });

@@ -4,10 +4,12 @@ import { hot } from "react-hot-loader/root";
 import React from "react";
 import { QueryClientProvider, QueryClient } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 
+import { NotFoundPage } from "./common/NotFoundPage";
 import { Navbar } from "./layout/Navbar";
 import { SquidList } from "./squids/SquidList";
+
 import "../style/main.pcss";
 
 const App = () => {
@@ -26,9 +28,14 @@ const App = () => {
       <Router>
         <Navbar />
         <Switch>
-          <Route exact path="/" component={SquidList} />
-          <Route exact path="/squids" component={SquidList} />
+          <Route exact path="/">
+            <Redirect to="/squids/pages/1" />
+          </Route>
           <Route exact path="/squids/pages/:page" component={SquidList} />
+          <Route exact path="/404" component={NotFoundPage} />
+          <Route exact path="/*">
+            <Redirect to="/404" />
+          </Route>
         </Switch>
       </Router>
       <ReactQueryDevtools initialIsOpen={false} />
