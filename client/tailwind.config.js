@@ -14,10 +14,14 @@ module.exports = {
       body: ["Montserrat"],
     },
     colors: {
-      light: "#F1F5F9",
-      dark: "#373D3F",
-      primary: "#2A496E",
-      secondary: "#cadbfa",
+      light: "#def0f8",
+      dark: "#040b10",
+      primary: "#2d6c9f",
+      secondary: "#102e42",
+      accent: "#cadbfa",
+      white: "#fff",
+      black: "#000",
+      alert: "#FFbb00",
     },
     extend: {
       gridTemplateColumns: {

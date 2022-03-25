@@ -9,7 +9,7 @@ import { SquidTile } from "./SquidTile";
 import "./styles/squidList.pcss";
 
 export const SquidList = () => {
-  const { squids, paginationLinkList, isLoading, isError, error } = usePaginatedSquids(10);
+  const { squids, paginationLinkList, isLoading, isError, error } = usePaginatedSquids(6);
 
   if (isError && error?.request?.status === 404) {
     return <Redirect to="/404" />;
