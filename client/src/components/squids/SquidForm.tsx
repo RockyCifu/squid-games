@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 
 import { NumberInput } from "./form-components/NumberInput";
 import { SelectInput } from "./form-components/SelectInput";
@@ -9,7 +9,7 @@ import { speciesArray } from "./resources/species";
 
 import "./styles/squidForm.pcss";
 
-export const SquidForm = () => {
+export const SquidForm: FC = () => {
   const { register, handleSubmit, onSubmit, errors, serverError } = useSquidForm();
 
   return (

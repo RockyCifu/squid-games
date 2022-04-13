@@ -1,8 +1,8 @@
-import React from "react";
+import React, { FC } from "react";
 
 import { Link, NavLink } from "react-router-dom";
 
-export const SquidPaginationList = (props) => {
+export const SquidPaginationList: FC<{ numPages: number; currentPage: number }> = (props) => {
   const { numPages, currentPage } = props;
 
   const previousPage = currentPage - 1 > 1 ? currentPage - 1 : 1;

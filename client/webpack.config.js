@@ -1,24 +1,18 @@
-// /* eslint-disable @typescript-eslint/no-var-requires */
+/* eslint-disable @typescript-eslint/no-var-requires */
 const fs = require("fs");
 const path = require("path");
 
-// eslint-disable-next-line import/no-extraneous-dependencies
 const dotenv = require("dotenv");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const webpack = require("webpack");
-
 dotenv.config();
 const isDevelopment = ["development", "test", "e2e"].includes(
   process.env.REACT_ENV || "development"
 );
-
 const initialEntryPoints = isDevelopment ? ["webpack-hot-middleware/client?reload=true"] : [];
-
 const appDirectory = fs.realpathSync(process.cwd());
-
 const resolveAppPath = (relativePath) => path.resolve(appDirectory, relativePath);
-
 let reactDomAlias = {};
 if (isDevelopment) {
   reactDomAlias = {
@@ -27,7 +21,7 @@ if (isDevelopment) {
 }
 module.exports = {
   target: "web",
-  entry: [...initialEntryPoints, path.join(__dirname, "./src/main")],
+  entry: [...initialEntryPoints, path.join(__dirname, "./src/main.tsx")],
   context: path.resolve(__dirname),
   devtool: isDevelopment ? "source-map" : false,
   mode: isDevelopment ? "development" : "production",
@@ -41,21 +35,20 @@ module.exports = {
       chunkFilename: isDevelopment ? "[id].css" : "[id].[hash].css",
     }),
     new HtmlWebpackPlugin({
-      title: "Consultancy Breakable Toy",
+      title: "Under the Sea",
       template: path.join(__dirname, "public/index.template.html"),
     }),
   ],
   module: {
     rules: [
-      // {
-      //   test: /\.(ts|tsx)$/,
-      //   exclude: /(node_modules|bower_components)/,
-      //   loader: "awesome-typescript-loader",
-      //   options: {
-      //     // useCache: true,
-      //     transpileOnly: true,
-      //   },
-      // },
+      {
+        test: /\.tsx?$/,
+        exclude: /(node_modules|bower_components)/,
+        loader: "ts-loader",
+        options: {
+          transpileOnly: true,
+        },
+      },
       {
         test: /\.(js|jsx)$/,
         exclude: /(node_modules|bower_components)/,
@@ -110,7 +103,6 @@ module.exports = {
     contentBase: resolveAppPath("public"),
     historyApiFallback: true,
     port: 3000,
-
     publicPath: "/",
     hot: true,
     proxy: [

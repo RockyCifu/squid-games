@@ -1,7 +1,14 @@
-import React from "react";
+import React, { FC } from "react";
 import "./styles/squidTile.pcss";
 
-export const SquidTile = ({ squid }) => {
+interface Squid {
+  name: string;
+  species: string;
+  specialPower: string;
+  experiencePoints: number;
+}
+
+export const SquidTile: FC<{ squid: Squid }> = ({ squid }) => {
   const imagePath = `/images/${squid.species.toLowerCase().replace(" ", "-")}-squid.png`;
 
   return (

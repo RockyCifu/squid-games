@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 
 import { Redirect } from "react-router-dom";
 
@@ -8,14 +8,22 @@ import { SquidTile } from "./SquidTile";
 
 import "./styles/squidList.pcss";
 
-export const SquidList = () => {
+interface Squid {
+  id: number | null | undefined;
+  name: string;
+  species: string;
+  specialPower: string;
+  experiencePoints: number;
+}
+
+export const SquidList: FC = () => {
   const { squids, paginationLinkList, isLoading, isError, error } = usePaginatedSquids(3);
 
   if (isError && error?.request?.status === 404) {
     return <Redirect to="/404" />;
   }
 
-  const squidTiles = squids?.map((squid) => <SquidTile key={squid.id} squid={squid} />);
+  const squidTiles = squids?.map((squid: Squid) => <SquidTile key={squid.id} squid={squid} />);
 
   return (
     <div className="squid-container">
