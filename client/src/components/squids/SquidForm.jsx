@@ -14,11 +14,8 @@ export const SquidForm = () => {
 
   return (
     <form className="squid-form" onSubmit={handleSubmit(onSubmit)}>
-      <h3 className="squid-form__title">Squid Entry Form</h3>
-
-      <p className="squid-form__tag-line">
-        Enter to compete in the most talked about battle royal in history!
-      </p>
+      <h3 className="squid-form__title">Entry Form</h3>
+      <p className="squid-form__tag-line">Enter the most talked about battle royal in history!</p>
 
       <TextInput
         id="name"

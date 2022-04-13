@@ -1,20 +1,32 @@
-.squid-section-title {
-  @apply text-dark mt-28 mb-8 text-xl3 font-black text-center;
+.squid-container {
+  @apply max-w-screen-xl mx-auto flex justify-center mt-28 mb-16 bg-secondary rounded-xl;
 }
 
-.squid-list {
-  @apply max-w-screen-xl mx-auto grid grid-cols-responsive gap-6 mb-8 px-4;
+.squid-section {
+  @apply w-1/2 mx-auto py-8 px-16 flex flex-col;
+
+  & .squid-section__title {
+    @apply text-white mb-4 text-xl3 font-black tracking-wider text-center;
+  }
+
+  & .squid-section__tag-line {
+    @apply text-lg text-light mb-12 text-center;
+  }
+
+  & .squid-section__squid-list {
+    @apply w-full mb-8 grid grid-cols-responsive gap-6;
+  }
 }
 
 .pagination-list {
   @apply max-w-screen-xl mx-auto flex align-middle justify-center mb-8;
 
   & .pagination-list__link {
-    @apply mr-4 no-underline font-semibold text-lg text-dark;
+    @apply mr-4 no-underline font-semibold text-lg text-accent;
   }
 
   & .pagination-list__link:hover {
-    @apply text-primary;
+    @apply text-white;
   }
 
   & .pagination-list__link:last-child {
@@ -22,6 +34,6 @@
   }
 
   & .active {
-    @apply text-primary;
+    @apply text-white;
   }
 }

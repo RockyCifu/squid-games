@@ -17,6 +17,8 @@ export const NumberInput = ({ field, register, labelText, error, serverError }) 
       })}
     />
     {error && <p className="squid-form__error-message">{error.message}</p>}
-    {serverError && <p className="squid-form__error-message">{serverError[0].message}</p>}
+    {serverError && (
+      <p className="squid-form__error-message">{`${field}: ${serverError[0].message}`}</p>
+    )}
   </label>
 );

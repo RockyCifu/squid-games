@@ -7,6 +7,8 @@ export const TextInput = ({ field, register, labelText, error, serverError }) =>
     <span>{`${labelText}: `}</span>
     <input id={field} {...register(field, { required: validations.required })} />
     {error && <p className="squid-form__error-message">{error.message}</p>}
-    {serverError && <p className="squid-form__error-message">{serverError[0].message}</p>}
+    {serverError && (
+      <p className="squid-form__error-message">{`${field}: ${serverError[0].message}`}</p>
+    )}
   </label>
 );
