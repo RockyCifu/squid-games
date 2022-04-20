@@ -1,8 +1,15 @@
 import React from "react";
 
-import { validations } from "../resources/validations";
-
-export const SelectInput = ({ field, values, register, labelText, error, serverError }) => {
+export const SelectInput = ({
+  field,
+  values,
+  register,
+  labelText,
+  error,
+  serverError,
+  classPrefix,
+  validations,
+}) => {
   const options = values.map((value) => (
     <option key={value} value={value}>
       {value}
@@ -10,15 +17,15 @@ export const SelectInput = ({ field, values, register, labelText, error, serverE
   ));
 
   return (
-    <label className="squid-form__input-group" htmlFor={field}>
+    <label className={`${classPrefix}__input-group`} htmlFor={field}>
       <span>{`${labelText}: `}</span>
       <select id={field} {...register(field, { required: validations.required })}>
         <option value="" aria-label="Blank Value" />
         {options}
       </select>
-      {error && <p className="squid-form__error-message">{error.message}</p>}
+      {error && <p className={`${classPrefix}__error-message`}>{error.message}</p>}
       {serverError && (
-        <p className="squid-form__error-message">{`${field}: ${serverError[0].message}`}</p>
+        <p className={`${classPrefix}__error-message`}>{`${field}: ${serverError[0].message}`}</p>
       )}
     </label>
   );
