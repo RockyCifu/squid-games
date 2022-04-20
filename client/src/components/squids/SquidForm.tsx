@@ -1,11 +1,12 @@
 import React, { FC } from "react";
 
-import { NumberInput } from "./form-components/NumberInput";
-import { SelectInput } from "./form-components/SelectInput";
-import { TextInput } from "./form-components/TextInput";
+import { NumberInput } from "../form/NumberInput";
+import { SelectInput } from "../form/SelectInput";
+import { TextInput } from "../form/TextInput";
 import { useSquidForm } from "./hooks/useSquidForm";
 import { powersArray } from "./resources/powers";
 import { speciesArray } from "./resources/species";
+import { validations } from "./resources/validations";
 
 import "./styles/squidForm.pcss";
 
@@ -23,6 +24,8 @@ export const SquidForm: FC = () => {
         labelText="Name"
         error={errors.name}
         serverError={serverError.name}
+        classPrefix={"squid-form"}
+        validations={validations}
       />
 
       <SelectInput
@@ -32,6 +35,8 @@ export const SquidForm: FC = () => {
         labelText="Species"
         error={errors.species}
         serverError={serverError.species}
+        classPrefix={"squid-form"}
+        validations={validations}
       />
 
       <SelectInput
@@ -41,6 +46,8 @@ export const SquidForm: FC = () => {
         labelText="Special Power"
         error={errors.specialPower}
         serverError={serverError.specialPower}
+        classPrefix={"squid-form"}
+        validations={validations}
       />
 
       <NumberInput
@@ -49,6 +56,8 @@ export const SquidForm: FC = () => {
         labelText="Experience"
         error={errors.experiencePoints}
         serverError={serverError.experiencePoints}
+        classPrefix="squid-form"
+        validations={validations}
       />
 
       <input className="squid-form__submit-btn" type="submit" />

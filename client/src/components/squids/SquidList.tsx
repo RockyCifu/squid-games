@@ -3,18 +3,11 @@ import React, { FC } from "react";
 import { Redirect } from "react-router-dom";
 
 import { usePaginatedSquids } from "./hooks/usePaginatedSquids";
+import { Squid } from "./resources/interfaces";
 import { SquidForm } from "./SquidForm";
 import { SquidTile } from "./SquidTile";
 
 import "./styles/squidList.pcss";
-
-interface Squid {
-  id: number | null | undefined;
-  name: string;
-  species: string;
-  specialPower: string;
-  experiencePoints: number;
-}
 
 export const SquidList: FC = () => {
   const { squids, paginationLinkList, isLoading, isError, error } = usePaginatedSquids(3);

@@ -1,49 +1,21 @@
 import { useState } from "react";
 
 import { AxiosError } from "axios";
-import {
-  useForm,
-  UseFormRegister,
-  UseFormHandleSubmit,
-  FieldError,
-  FieldValues,
-} from "react-hook-form";
+import { useForm, UseFormRegister, UseFormHandleSubmit, FieldValues } from "react-hook-form";
 import { useQueryClient } from "react-query";
 
+import { SquidError, SquidServerError } from "../resources/interfaces";
 import { useMutateSquids } from "./useMutateSquids";
-
-type FormData = {
-  name: string;
-  species: string;
-  specialPower: string;
-  experiencePoints: number;
-};
-
 interface SquidForm {
   register: UseFormRegister<FieldValues>;
   handleSubmit: UseFormHandleSubmit<FieldValues>;
   onSubmit: (data: FormData) => void;
-  errors: {
-    name?: FieldError;
-    species?: FieldError;
-    specialPower?: FieldError;
-    experiencePoints?: FieldError;
-  };
-  serverError: {
-    name?: Array<{ message: string }>;
-    species?: Array<{ message: string }>;
-    specialPower?: Array<{ message: string }>;
-    experiencePoints?: Array<{ message: string }>;
-  };
+  errors: SquidError;
+  serverError: SquidServerError;
 }
 
 export const useSquidForm = (): SquidForm => {
-  const [serverError, setServerError] = useState<{
-    name?: Array<{ message: string }>;
-    species?: Array<{ message: string }>;
-    specialPower?: Array<{ message: string }>;
-    experiencePoints?: Array<{ message: string }>;
-  }>({});
+  const [serverError, setServerError] = useState<SquidServerError>({});
 
   const { mutate: createSquid } = useMutateSquids();
 
