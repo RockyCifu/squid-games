@@ -1,22 +1,18 @@
 import React, { FC } from "react";
 
-import { AxiosError } from "axios";
+import { FieldValues, UseFormRegister } from "react-hook-form";
 
 import { validations } from "../resources/validations";
 
-interface Squid {
-  name: string;
-  species: string;
-  specialPower: string;
-  experiencePoints: number;
+interface Props {
+  field: string;
+  register: UseFormRegister<FieldValues>;
+  labelText: string;
+  error: { message?: string };
+  serverError: Array<{ message: string }>;
 }
 
-export const TextInput: FC<{
-  field: string;
-  register: unknown;
-  labelText: string;
-  error: FieldError;
-}> = ({ field, register, labelText, error, serverError }) => (
+export const TextInput: FC<Props> = ({ field, register, labelText, error, serverError }) => (
   <label className="squid-form__input-group" htmlFor={field}>
     <span>{`${labelText}: `}</span>
     <input id={field} {...register(field, { required: validations.required })} />

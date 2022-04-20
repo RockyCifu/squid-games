@@ -14,7 +14,7 @@ interface Squid {
 }
 
 interface PaginatedSquids {
-  squids: Squid[] | [];
+  squids: Array<Squid> | [];
   paginationLinkList: ReactElement;
   isLoading: boolean;
   isError: boolean;

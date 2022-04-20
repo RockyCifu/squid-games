@@ -1,10 +1,20 @@
-import React from "react";
+import React, { FC } from "react";
+
+import { UseFormRegister, FieldValues } from "react-hook-form";
 
 import { validations } from "../resources/validations";
 
 const { required, experiencePointsMin, experiencePointsMax } = validations;
 
-export const NumberInput = ({ field, register, labelText, error, serverError }) => (
+interface Props {
+  field: string;
+  register: UseFormRegister<FieldValues>;
+  labelText: string;
+  error: { message?: string };
+  serverError: Array<{ message: string }>;
+}
+
+export const NumberInput: FC<Props> = ({ field, register, labelText, error, serverError }) => (
   <label className="squid-form__input-group" htmlFor={field}>
     <span>{`${labelText}: `}</span>
     <input

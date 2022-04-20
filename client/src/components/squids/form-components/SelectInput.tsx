@@ -1,8 +1,26 @@
-import React from "react";
+import React, { FC } from "react";
+
+import { UseFormRegister, FieldValues } from "react-hook-form";
 
 import { validations } from "../resources/validations";
 
-export const SelectInput = ({ field, values, register, labelText, error, serverError }) => {
+interface Props {
+  field: string;
+  values: Array<string>;
+  register: UseFormRegister<FieldValues>;
+  labelText: string;
+  error: { message?: string };
+  serverError: Array<{ message: string }>;
+}
+
+export const SelectInput: FC<Props> = ({
+  field,
+  values,
+  register,
+  labelText,
+  error,
+  serverError,
+}) => {
   const options = values.map((value) => (
     <option key={value} value={value}>
       {value}

@@ -18,7 +18,6 @@ export const SquidForm: FC = () => {
       <p className="squid-form__tag-line">Enter the most talked about battle royal in history!</p>
 
       <TextInput
-        id="name"
         field="name"
         register={register}
         labelText="Name"
@@ -27,7 +26,6 @@ export const SquidForm: FC = () => {
       />
 
       <SelectInput
-        id="species"
         field="species"
         values={speciesArray}
         register={register}
@@ -37,7 +35,6 @@ export const SquidForm: FC = () => {
       />
 
       <SelectInput
-        id="specialPower"
         field="specialPower"
         values={powersArray}
         register={register}

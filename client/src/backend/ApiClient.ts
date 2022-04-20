@@ -22,7 +22,7 @@ export class ApiClient {
 
   static patch(
     path: string,
-    params?: AxiosRequestConfig,
+    params?: unknown,
     reqConfig?: AxiosRequestConfig
   ): Promise<AxiosResponse> {
     return this.client().patch(path, params, reqConfig);
@@ -30,7 +30,7 @@ export class ApiClient {
 
   static put(
     path: string,
-    params?: AxiosRequestConfig,
+    params?: unknown,
     reqConfig?: AxiosRequestConfig
   ): Promise<AxiosResponse> {
     return this.client().put(path, params, reqConfig);
@@ -38,7 +38,7 @@ export class ApiClient {
 
   static delete(
     path: string,
-    params?: AxiosRequestConfig,
+    params?: unknown,
     reqConfig?: AxiosRequestConfig
   ): Promise<AxiosResponse> {
     return this.client().delete(path, reqConfig);
