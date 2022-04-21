@@ -33,13 +33,11 @@ const getRandom = (array) => {
   return array[Math.floor(Math.random() * array.length)];
 };
 
-Factory.define("Squid", Squid)
-  .sequence("id")
-  .attrs({
-    name: () => faker.name.firstName(),
-    species: () => getRandom(species),
-    specialPower: () => getRandom(powers),
-    experiencePoints: () => Math.floor(Math.random() * 1000 + 1),
-  });
+Factory.define("Squid", Squid).attrs({
+  name: () => faker.name.firstName(),
+  species: () => getRandom(species),
+  specialPower: () => getRandom(powers),
+  experiencePoints: () => Math.floor(Math.random() * 1000 + 1),
+});
 
 export { Factory };

@@ -1,0 +1,39 @@
+.squid-form {
+  @apply w-1/2 py-8 px-16 flex flex-col items-center;
+
+  & .squid-form__title {
+    @apply text-xl3 text-white font-black tracking-wider mb-4 text-center;
+  }
+
+  & .squid-form__tag-line {
+    @apply text-lg text-light mb-8 text-center;
+  }
+
+  & .squid-form__input-group {
+    @apply w-full flex flex-col mb-4;
+  }
+
+  & .squid-form__input-group span {
+    @apply text-white text-xl font-semibold mb-2;
+  }
+
+  & .squid-form__input-group input {
+    @apply p-3 rounded-lg bg-accent;
+  }
+
+  & .squid-form__input-group select {
+    @apply bg-accent p-3 rounded-lg;
+  }
+
+  & .squid-form__submit-btn {
+    @apply w-full p-3 mt-10 mb-2 rounded-lg text-light text-center text-xl2 font-normal bg-primary;
+  }
+
+  & .squid-form__submit-btn:hover {
+    @apply bg-accent text-secondary cursor-pointer;
+  }
+
+  & .squid-form__error-message {
+    @apply text-alert mt-2 text-left;
+  }
+}

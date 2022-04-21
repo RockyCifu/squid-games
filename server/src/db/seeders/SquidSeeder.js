@@ -6,7 +6,7 @@ class SquidSeeder {
   static async seed() {
     try {
       const factory = new Factory(Squid);
-      await factory.createMany(3);
+      await factory.createMany(12);
       // eslint-disable-next-line no-console
       console.log("Seeding Successful");
     } catch (error) {
