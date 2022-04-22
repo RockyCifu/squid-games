@@ -1,0 +1,31 @@
+.squid-show {
+  @apply flex flex-col items-center rounded-lg bg-accent w-full max-w-5xl mt-36 mx-auto py-20;
+
+  & .squid-show__image-container {
+    @apply h-auto w-1/2 max-w-xl p-4 mx-4;
+  }
+
+  & .squid-show__image {
+    @apply h-full w-full object-contain object-center;
+  }
+
+  & .squid-show__info-container {
+    @apply w-full flex flex-col justify-center items-center p-4;
+  }
+
+  & .squid-show__info-row {
+    @apply mb-1 flex items-center;
+  }
+
+  & .squid-show__info-row:last-child {
+    @apply mb-0;
+  }
+
+  & .squid-show__info-row dd {
+    @apply text-base;
+  }
+
+  & .squid-show__label {
+    @apply font-semibold mr-2;
+  }
+}

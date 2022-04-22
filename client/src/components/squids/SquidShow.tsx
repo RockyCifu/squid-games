@@ -5,6 +5,8 @@ import { useParams, Redirect } from "react-router-dom";
 
 import { useSquidShow } from "./hooks/useSquidShow";
 
+import "./styles/squidShow.pcss";
+
 export const SquidShow: FC = () => {
   const { id } = useParams<{ id: string }>();
   const { squid, horoscope, error, isError, isLoading } = useSquidShow(id);
