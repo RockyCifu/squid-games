@@ -9,6 +9,7 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-d
 import { NotFoundPage } from "./common/NotFoundPage";
 import { Navbar } from "./layout/Navbar";
 import { SquidList } from "./squids/SquidList";
+import { SquidShow } from "./squids/SquidShow";
 
 import "../style/main.pcss";
 
@@ -32,6 +33,7 @@ const App: FC = () => {
             <Redirect to="/squids/pages/1" />
           </Route>
           <Route exact path="/squids/pages/:page" component={SquidList} />
+          <Route exact path="/squids/:id" component={SquidShow} />
           <Route exact path="/404" component={NotFoundPage} />
           <Route exact path="/*">
             <Redirect to="/404" />

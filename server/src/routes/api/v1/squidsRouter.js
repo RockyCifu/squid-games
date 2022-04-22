@@ -39,4 +39,12 @@ squidsRouter.post(
   })
 );
 
+squidsRouter.get(
+  "/:id",
+  nextWrapper(async (req, res) => {
+    const squid = await Squid.query().findById(req.params.id).throwIfNotFound();
+    return res.status(200).json({ squid });
+  })
+);
+
 export { squidsRouter };

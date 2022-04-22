@@ -2,8 +2,8 @@ import React, { FC } from "react";
 
 import { Redirect } from "react-router-dom";
 
+import { Squid } from "../../models/Squid";
 import { usePaginatedSquids } from "./hooks/usePaginatedSquids";
-import { Squid } from "./resources/interfaces";
 import { SquidForm } from "./SquidForm";
 import { SquidTile } from "./SquidTile";
 

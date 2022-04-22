@@ -2,7 +2,7 @@ import { AxiosError } from "axios";
 import { useQuery, UseQueryResult } from "react-query";
 
 import { ApiClient } from "../../../backend/ApiClient";
-import { Squid } from "../resources/interfaces";
+import { Squid } from "../../../models/Squid";
 
 interface ResponseObject {
   squids: Squid[];

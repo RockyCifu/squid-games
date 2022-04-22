@@ -1,13 +1,4 @@
 import { FieldError } from "react-hook-form";
-
-interface Squid {
-  id: number | null | undefined;
-  name: string;
-  species: string;
-  specialPower: string;
-  experiencePoints: number;
-}
-
 interface SquidError {
   name?: FieldError;
   species?: FieldError;
@@ -28,4 +19,4 @@ interface Validations {
   max: { value: number; message: string };
 }
 
-export { Squid, SquidError, SquidServerError, Validations };
+export { SquidError, SquidServerError, Validations };

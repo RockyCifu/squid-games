@@ -3,15 +3,9 @@ import React, { ReactElement } from "react";
 import { AxiosError } from "axios";
 import { useParams } from "react-router-dom";
 
+import { Squid } from "../../../models/Squid";
 import { SquidPaginationList } from "../SquidPaginationList";
 import { useSquids } from "./useSquids";
-
-interface Squid {
-  name: string;
-  species: string;
-  specialPower: string;
-  experiencePoints: number;
-}
 
 interface PaginatedSquids {
   squids: Array<Squid> | [];
