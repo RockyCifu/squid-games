@@ -33,13 +33,18 @@ const getRandom = (array) => {
   return array[Math.floor(Math.random() * array.length)];
 };
 
-Factory.define("Squid", Squid)
-  .sequence("id")
-  .attrs({
-    name: () => faker.name.firstName(),
-    species: () => getRandom(species),
-    specialPower: () => getRandom(powers),
-    experiencePoints: () => Math.floor(Math.random() * 1000 + 1),
-  });
+const getRandomDate = () => {
+  const startDate = new Date(1940, 0, 1);
+  const endDate = new Date();
+  return new Date(startDate.getTime() + Math.random() * (endDate.getTime() - startDate.getTime()));
+};
+
+Factory.define("Squid", Squid).attrs({
+  name: () => faker.name.firstName(),
+  species: () => getRandom(species),
+  specialPower: () => getRandom(powers),
+  experiencePoints: () => Math.floor(Math.random() * 1000 + 1),
+  birthday: () => getRandomDate(),
+});
 
 export { Factory };

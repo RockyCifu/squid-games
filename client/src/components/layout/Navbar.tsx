@@ -1,9 +1,9 @@
-import React from "react";
+import React, { FC } from "react";
 
 import { Link } from "react-router-dom";
 import "./styles/navbar.pcss";
 
-export const Navbar = () => (
+export const Navbar: FC = () => (
   <div className="navbar">
     <div className="navbar__container">
       <p className="navbar__title">Squid Games</p>

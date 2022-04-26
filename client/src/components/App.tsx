@@ -1,7 +1,7 @@
 // eslint-disable-next-line import/order
 import { hot } from "react-hot-loader/root";
 // eslint-disable-next-line import/order
-import React from "react";
+import React, { FC } from "react";
 import { QueryClientProvider, QueryClient } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
@@ -9,10 +9,11 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-d
 import { NotFoundPage } from "./common/NotFoundPage";
 import { Navbar } from "./layout/Navbar";
 import { SquidList } from "./squids/SquidList";
+import { SquidShow } from "./squids/SquidShow";
 
 import "../style/main.pcss";
 
-const App = () => {
+const App: FC = () => {
   /*
   Defaults:
   - retry: false because we don't want to retry on network errors
@@ -32,6 +33,7 @@ const App = () => {
             <Redirect to="/squids/pages/1" />
           </Route>
           <Route exact path="/squids/pages/:page" component={SquidList} />
+          <Route exact path="/squids/:id" component={SquidShow} />
           <Route exact path="/404" component={NotFoundPage} />
           <Route exact path="/*">
             <Redirect to="/404" />

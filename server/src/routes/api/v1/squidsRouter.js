@@ -1,6 +1,7 @@
 import express from "express";
 
 import { Squid } from "../../../models/index.js";
+import { sanitizeSquid } from "../../../services/sanitizeSquid.js";
 import { nextWrapper } from "../../lib/nextWrapper.js";
 
 const squidsRouter = new express.Router();
@@ -26,6 +27,23 @@ squidsRouter.get(
       pages: numPages,
       squids: queryResult.results,
     });
+  })
+);
+
+squidsRouter.post(
+  "/",
+  nextWrapper(async (req, res) => {
+    const squid = sanitizeSquid(req.body.squid);
+    const newSquid = await Squid.query().insertAndFetch(squid);
+    res.status(201).json({ squid: newSquid });
+  })
+);
+
+squidsRouter.get(
+  "/:id",
+  nextWrapper(async (req, res) => {
+    const squid = await Squid.query().findById(req.params.id).throwIfNotFound();
+    return res.status(200).json({ squid });
   })
 );
 
